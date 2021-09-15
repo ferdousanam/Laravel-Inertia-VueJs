@@ -10,9 +10,6 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!--external css-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
-
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"></link>
 
 </head>

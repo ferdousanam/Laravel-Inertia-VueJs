@@ -15,6 +15,9 @@ const path = require('path');
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/scss/app.scss', 'public/css')
+    .copyDirectory([
+        'node_modules/font-awesome/fonts',
+    ], 'public/fonts')
     .scripts([
         'node_modules/popper.js/dist/umd/popper.js',
         'node_modules/jquery/dist/jquery.js',
