@@ -16,16 +16,18 @@
                     </thead>
                     <tbody>
                     <tr v-for="(user, index) in users.data">
-                        <td>{{ index + 1 }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td><Link :href="'/users/' + user.id" class="btn btn-primary">Show</Link></td>
+                        <td class="align-middle">{{ index + 1 }}</td>
+                        <td class="align-middle">{{ user.name }}</td>
+                        <td class="align-middle">{{ user.email }}</td>
+                        <td class="align-middle"><Link :href="'/users/' + user.id" class="btn btn-primary btn-sm">Show</Link></td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="mt-6 px-5">
-                    <pagination class="float-right" :links="users.links" />
-                </div>
+                <footer class="card-footer">
+                    <div class="px-5">
+                        <pagination class="float-right" :links="users.links" />
+                    </div>
+                </footer>
             </section>
         </div>
     </div>
