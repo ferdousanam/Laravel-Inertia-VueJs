@@ -15,7 +15,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(user, index) in users">
+                    <tr v-for="(user, index) in users.data">
                         <td>{{ index + 1 }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
@@ -23,17 +23,22 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="mt-6 px-5">
+                    <pagination class="float-right" :links="users.links" />
+                </div>
             </section>
         </div>
     </div>
 </template>
 
 <script>
-import {Link} from '@inertiajs/inertia-vue'
+import {Link} from '@inertiajs/inertia-vue';
+import Pagination from '@/components/Pagination';
 
 export default {
     components: {
         Link,
+        Pagination,
     },
     props: ['users'],
 }
