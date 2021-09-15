@@ -11,7 +11,7 @@
                     </Link>
                 </li>
                 <li>
-                    <Link href="/users" :class="{ 'active': $page.url === '/users' }">
+                    <Link href="/users" :class="{ 'active': $page.component === 'User/Index' }">
                         <i class="fa fa-users"></i>
                         <span>Users</span>
                     </Link>
