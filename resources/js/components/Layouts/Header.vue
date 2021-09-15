@@ -5,7 +5,7 @@
             <i class="fa fa-bars"></i>
         </div>
         <!--logo start-->
-        <Link href="/" class="logo">Dash<span>board</span></Link>
+        <Link href="/" class="logo" :class="{ 'active': $page.url === '/' }">Dash<span>board</span></Link>
         <!--logo end-->
         <div class="top-nav ">
             <!--search & user info start-->
