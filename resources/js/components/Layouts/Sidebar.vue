@@ -10,6 +10,12 @@
                         <span>Dashboard</span>
                     </Link>
                 </li>
+                <li>
+                    <Link href="/users" :class="{ 'active': $page.url === '/users' }">
+                        <i class="fa fa-users"></i>
+                        <span>Users</span>
+                    </Link>
+                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>

@@ -10,6 +10,7 @@
                     <tr>
                         <th>#</th>
                         <th>Full Name</th>
+                        <th>Email Address</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -17,7 +18,8 @@
                     <tr v-for="(user, index) in users">
                         <td>{{ index + 1 }}</td>
                         <td>{{ user.name }}</td>
-                        <td><Link :href="'/users/' + index" class="btn btn-primary">Show</Link></td>
+                        <td>{{ user.email }}</td>
+                        <td><Link :href="'/users/' + user.id" class="btn btn-primary">Show</Link></td>
                     </tr>
                     </tbody>
                 </table>
