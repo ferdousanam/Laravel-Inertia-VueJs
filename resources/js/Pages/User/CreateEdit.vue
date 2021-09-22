@@ -2,7 +2,7 @@
     <div>
         <section class="card">
             <header class="card-header">
-                Add User
+                {{ form.id ? 'Update' : 'Add' }} User
             </header>
             <div class="card-body">
                 <form method="POST" @submit.prevent="submit">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" v-model="form.password">
+                        <input type="password" class="form-control" :class="[errors.password && 'is-invalid']" id="password" placeholder="Password" v-model="form.password">
                         <input-error name="password"></input-error>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -45,30 +45,38 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
-                id: '',
                 name: '',
                 email: '',
                 password: '',
-            })
+            }),
+        }
+    },
+
+    mounted() {
+        if (this.$page.props.user) {
+            this.form = this.$inertia.form(this.$page.props.user);
         }
     },
 
     methods: {
         submit() {
-            let route = 'users';
-            if (this.form.id) {
-                route = `users/${this.form.id}`;
-            }
-            this.form.post(this.route(route), {
+            const config = {
                 preserveScroll: true,
                 onSuccess: response => {
                     console.log(response);
+                    this.form.reset('password');
                 },
                 onError: error => {
                     console.log(error);
+                    this.form.reset('password');
                 },
                 onFinish: () => this.form.reset('password'),
-            });
+            };
+            if (this.form.id) {
+                this.form.put(this.route(`users/${this.form.id}`), config);
+            } else {
+                this.form.post(this.route('users'), config);
+            }
         }
     }
 }

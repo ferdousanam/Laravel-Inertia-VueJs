@@ -20,7 +20,10 @@
                         <td class="align-middle">{{ index + 1 }}</td>
                         <td class="align-middle">{{ user.name }}</td>
                         <td class="align-middle">{{ user.email }}</td>
-                        <td class="align-middle"><Link :href="'/users/' + user.id" class="btn btn-primary btn-sm">Show</Link></td>
+                        <td class="align-middle">
+                            <Link :href="'/users/' + user.id" class="btn btn-primary btn-sm">Show</Link>
+                            <Link :href="'/users/' + user.id + '/edit'" class="btn btn-primary btn-sm">Edit</Link>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

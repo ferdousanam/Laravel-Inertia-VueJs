@@ -42,12 +42,23 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return Inertia::render('User/CreateEdit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $id],
+            'password' => ['nullable', 'string', 'min:8'],
+        ]);
+
+        $user = User::find($id);
+        $user->update($data);
+
+        return Redirect::route('users.edit', $id);
     }
 
     public function destroy($id)
