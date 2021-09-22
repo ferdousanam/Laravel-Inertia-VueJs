@@ -28,7 +28,6 @@ mix.js('resources/js/app.js', 'public/js')
         'node_modules/jquery-sparkline/jquery.sparkline.js',
         'node_modules/respond.js/dest/respond.min.js',
         'resources/js/libs/slidebars.min.js',
-        'resources/js/common-scripts.js',
     ], 'public/js/vendors.js')
     .webpackConfig({
         output: {chunkFilename: 'js/[name].js?id=[chunkhash]'},

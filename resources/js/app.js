@@ -30,4 +30,5 @@ createInertiaApp({
     },
 }).then(() => {
     console.log("Inertia App Created!");
+    require('./common-scripts');
 });

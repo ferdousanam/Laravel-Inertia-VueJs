@@ -16,7 +16,9 @@
 
 <body class="light-sidebar-nav">
 
-@inertia
+<section id="container">
+    @inertia
+</section>
 
 <script src="{{ mix('/js/vendors.js') }}"></script>
 <script src="{{ mix('/js/app.js') }}" defer></script>
