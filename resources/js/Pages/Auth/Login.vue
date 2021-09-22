@@ -1,71 +1,39 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Login</div>
-
-                    <div class="card-body">
-                        <form method="POST" @submit.prevent="submit">
-
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" :class="[errors.email && 'is-invalid']" name="email" v-model="form.email" required autocomplete="email" autofocus>
-
-                                    <span v-if="errors.email" class="invalid-feedback" role="alert">
-                                        <strong>{{ errors.email }}</strong>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" :class="[errors.password && 'is-invalid']" name="password" v-model="form.password" required autocomplete="current-password">
-
-                                    <span v-if="errors.password" class="invalid-feedback" role="alert">
-                                        <strong>{{ errors.password }}</strong>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" v-model:checked="form.remember">
-
-                                        <label class="form-check-label" for="remember">
-                                            Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Login
-                                    </button>
-
-                                    <a v-if="canResetPassword" class="btn btn-link" :href="route('password.request')">
-                                        Forgot Your Password?
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+        <form class="form-signin" method="POST" @submit.prevent="submit">
+            <h2 class="form-signin-heading">sign in now</h2>
+            <div class="login-wrap">
+                <input type="email" name="email" v-model="form.email" class="form-control" :class="[errors.email && 'is-invalid']" placeholder="E-Mail Address" autocomplete="email" autofocus>
+                <input-error name="email"></input-error>
+                <input type="password" name="password" v-model="form.password" class="form-control" :class="[errors.password && 'is-invalid']" placeholder="Password">
+                <input-error name="password"></input-error>
+                <label class="checkbox">
+                    <input type="checkbox" name="remember" id="remember" value="remember-me" v-model:checked="form.remember"> Remember me
+                    <span v-if="false" class="pull-right" >
+                        <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+                    </span>
+                </label>
+                <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+                <div v-if="false" class="registration">
+                    Don't have an account yet?
+                    <a class="" href="registration.html">
+                        Create an account
+                    </a>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
 <script>
+import InputError from "@/Theme/InputError";
+
 export default {
     name: "Login",
+
+    components: {
+        InputError
+    },
 
     props: {
         canResetPassword: Boolean,
@@ -86,6 +54,14 @@ export default {
                 remember: false
             })
         }
+    },
+
+    mounted() {
+        $('body').removeClass('light-sidebar-nav').addClass('login-body');
+    },
+
+    beforeDestroy() {
+        $('body').removeClass('login-body').addClass('light-sidebar-nav');
     },
 
     methods: {
