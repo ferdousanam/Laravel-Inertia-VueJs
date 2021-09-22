@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout dropdown-menu-right">
                         <div class="log-arrow-up"></div>
-                        <li><a href="#" @click.prevent.stop="logout"><i class="fa fa-key"></i> Log Out</a></li>
+                        <li><a href="javascript:void(0);" @click.prevent.stop="logout"><i class="fa fa-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->

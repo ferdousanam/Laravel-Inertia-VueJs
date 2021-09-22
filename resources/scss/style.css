@@ -697,7 +697,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .log-arrow-up {
-    background: url("../img/arrow-up.png") no-repeat;
+    background: url("http://thevectorlab.net/flatlab-4/img/arrow-up.png") no-repeat;
     width: 20px;
     height: 11px;
     position: absolute;
