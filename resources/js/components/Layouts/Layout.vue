@@ -1,27 +1,32 @@
 <template>
     <section id="container">
-        <header-component></header-component>
+        <template v-if="$page.props.auth.user">
+            <header-component></header-component>
 
-        <sidebar></sidebar>
+            <sidebar></sidebar>
 
-        <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
-                <slot></slot>
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                    <slot></slot>
+                </section>
             </section>
-        </section>
-        <!--main content end-->
+            <!--main content end-->
 
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2021 &copy; Developed by Ferdous Anam.
-                <a href="#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2021 &copy; Developed by Ferdous Anam.
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </template>
+        <template v-else>
+            <slot></slot>
+        </template>
     </section>
 </template>
 
