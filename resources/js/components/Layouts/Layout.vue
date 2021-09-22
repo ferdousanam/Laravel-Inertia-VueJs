@@ -8,6 +8,8 @@
             <!--main content start-->
             <section id="main-content">
                 <section class="wrapper">
+                    <success></success>
+                    <error></error>
                     <slot></slot>
                 </section>
             </section>
@@ -33,12 +35,16 @@
 <script>
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import Success from "@/components/Alerts/Success";
+import Error from "@/components/Alerts/Error";
 
 export default {
     name: "Layout",
     components: {
         headerComponent: Header,
-        Sidebar
+        Sidebar,
+        Success,
+        Error,
     },
     data() {
         return {

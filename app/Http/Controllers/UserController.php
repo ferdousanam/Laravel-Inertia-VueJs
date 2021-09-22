@@ -31,7 +31,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return Redirect::route('users.index');
+        return Redirect::route('users.index')->with('success', 'User Created Successfully!');
     }
 
     public function show($id)
@@ -65,13 +65,13 @@ class UserController extends Controller
         $user = User::find($id);
         $user->update($data);
 
-        return Redirect::route('users.edit', $id);
+        return Redirect::route('users.edit', $id)->with('success', 'User Updated Successfully!');
     }
 
     public function destroy($id)
     {
         User::destroy($id);
 
-        return Redirect::route('users.index');
+        return Redirect::route('users.index')->with('success', 'User Deleted Successfully!');
     }
 }
