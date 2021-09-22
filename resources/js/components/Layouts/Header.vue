@@ -14,12 +14,12 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <img alt="" :src="template_url + '/img/avatar1_small.jpg'">
-                        <span class="username">Ferdous Anam</span>
+                        <span class="username">{{ $page.props.auth.user.name }}</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout dropdown-menu-right">
                         <div class="log-arrow-up"></div>
-                        <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                        <li><a href="#" @click.prevent.stop="logout"><i class="fa fa-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -38,10 +38,13 @@ export default {
     components: {
         Link,
     },
-    data() {
-        return {
-            template_url: 'http://thevectorlab.net/flatlab-4',
-        }
+    mounted() {
+        //
+    },
+    methods: {
+        logout() {
+            this.$inertia.post(this.route('logout'));
+        },
     }
 }
 </script>

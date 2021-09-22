@@ -37,7 +37,6 @@ export default {
     },
     data() {
         return {
-            template_url: 'http://thevectorlab.net/flatlab-4',
         }
     }
 }

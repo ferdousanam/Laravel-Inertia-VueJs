@@ -12,6 +12,18 @@ createInertiaApp({
         return page;
     },
     setup({el, App, props}) {
+        Vue.mixin({
+            data() {
+                return {
+                    template_url: 'http://thevectorlab.net/flatlab-4',
+                }
+            },
+            methods: {
+                route(route) {
+                    return '/' + route;
+                },
+            },
+        });
         new Vue({
             render: h => h(App, props),
         }).$mount(el);
