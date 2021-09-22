@@ -22,31 +22,52 @@
                         <td class="align-middle">{{ user.email }}</td>
                         <td class="align-middle">
                             <Link :href="'/users/' + user.id" class="btn btn-primary btn-sm">Show</Link>
-                            <Link :href="'/users/' + user.id + '/edit'" class="btn btn-primary btn-sm">Edit</Link>
+                            <Link :href="'/users/' + user.id + '/edit'" class="btn btn-secondary btn-sm">Edit</Link>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" @click="deletable_id = user.id">Delete</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
                 <footer class="card-footer">
                     <div class="px-5">
-                        <pagination class="float-right" :links="users.links" />
+                        <pagination class="float-right" :links="users.links"/>
                     </div>
                 </footer>
             </section>
         </div>
+        <delete-modal @close="deletable_id = null" @confirm="deleteItem"></delete-modal>
     </div>
 </template>
 
 <script>
 import {Link} from '@inertiajs/inertia-vue';
 import Pagination from '@/components/Pagination';
+import DeleteModal from '@/components/Modals/DeleteModal';
 
 export default {
     components: {
         Link,
         Pagination,
+        DeleteModal,
     },
     props: ['users'],
+    data() {
+        return {
+            deletable_id: null,
+        }
+    },
+    methods: {
+        deleteItem() {
+            this.$inertia.form({id: this.deletable_id})
+                .delete(this.route(`users/${this.deletable_id}`), {
+                    preserveScroll: true,
+                    onFinish: () => {
+                        this.deletable_id = null;
+                        $('#deleteModal').modal('hide');
+                    },
+                });
+        }
+    }
 }
 </script>
 
