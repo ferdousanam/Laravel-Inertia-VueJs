@@ -4,6 +4,7 @@
             <section class="card">
                 <header class="card-header">
                     User List
+                    <Link class="btn btn-primary pull-right" :href="'/users/create'"><i class="fa fa-plus-square-o"></i> Add User</Link>
                 </header>
                 <table class="table table-striped">
                     <thead>
