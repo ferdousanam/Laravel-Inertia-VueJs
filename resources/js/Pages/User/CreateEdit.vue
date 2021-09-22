@@ -54,7 +54,7 @@ export default {
 
     mounted() {
         if (this.$page.props.user) {
-            this.form = this.$inertia.form(this.$page.props.user);
+            this.form = this.$inertia.form({...this.form.data(), ...this.$page.props.user});
         }
     },
 
