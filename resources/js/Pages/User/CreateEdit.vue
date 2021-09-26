@@ -73,9 +73,9 @@ export default {
                 onFinish: () => this.form.reset('password'),
             };
             if (this.form.id) {
-                this.form.put(this.route(`users/${this.form.id}`), config);
+                this.form.put(this.route('users.update', this.form.id), config);
             } else {
-                this.form.post(this.route('users'), config);
+                this.form.post(this.route('users.index'), config);
             }
         }
     }

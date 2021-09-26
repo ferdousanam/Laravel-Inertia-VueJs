@@ -22,8 +22,8 @@
                             <td class="align-middle">{{ user.name }}</td>
                             <td class="align-middle">{{ user.email }}</td>
                             <td class="align-middle">
-                                <Link :href="'/users/' + user.id" class="btn btn-primary btn-sm">Show</Link>
-                                <Link :href="'/users/' + user.id + '/edit'" class="btn btn-secondary btn-sm">Edit</Link>
+                                <Link :href="route('users.show', user.id)" class="btn btn-primary btn-sm">Show</Link>
+                                <Link :href="route('users.edit', user.id)" class="btn btn-secondary btn-sm">Edit</Link>
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" @click="deletable_id = user.id">Delete</button>
                             </td>
                         </tr>
@@ -61,7 +61,7 @@ export default {
     methods: {
         deleteItem() {
             this.$inertia.form({id: this.deletable_id})
-                .delete(this.route(`users/${this.deletable_id}`), {
+                .delete(this.route('users.destroy', this.deletable_id), {
                     preserveScroll: true,
                     onFinish: () => {
                         this.deletable_id = null;

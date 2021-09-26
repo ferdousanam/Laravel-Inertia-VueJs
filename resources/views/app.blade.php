@@ -12,6 +12,8 @@
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"></link>
 
+    @routes
+
 </head>
 
 <body class="light-sidebar-nav">

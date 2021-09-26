@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import route from 'ziggy'
 import {createInertiaApp} from '@inertiajs/inertia-vue'
 import {InertiaProgress} from '@inertiajs/progress'
 import Layout from './components/Layouts/Layout'
@@ -19,9 +20,7 @@ createInertiaApp({
                 }
             },
             methods: {
-                route(route) {
-                    return '/' + route;
-                },
+                route: (name, params, absolute) => route(name, params, absolute, Ziggy),
             },
         });
         new Vue({

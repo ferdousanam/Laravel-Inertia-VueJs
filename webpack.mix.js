@@ -33,7 +33,8 @@ mix.js('resources/js/app.js', 'public/js')
         output: {chunkFilename: 'js/[name].js?id=[chunkhash]'},
         resolve: {
             alias: {
-                '@': path.resolve('resources/js')
+                '@': path.resolve('resources/js'),
+                ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
             }
         }
     })
