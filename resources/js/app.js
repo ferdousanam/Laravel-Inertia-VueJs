@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import route from 'ziggy'
 import {createInertiaApp} from '@inertiajs/inertia-vue'
 import {InertiaProgress} from '@inertiajs/progress'
 import Layout from './components/Layouts/Layout'
@@ -19,9 +18,7 @@ createInertiaApp({
                     template_url: 'http://thevectorlab.net/flatlab-4',
                 }
             },
-            methods: {
-                route: (name, params, absolute) => route(name, params, absolute, Ziggy),
-            },
+            methods: {route},
         });
         new Vue({
             render: h => h(App, props),

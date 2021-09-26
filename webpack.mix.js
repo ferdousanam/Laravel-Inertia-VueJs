@@ -34,7 +34,7 @@ mix.js('resources/js/app.js', 'public/js')
         resolve: {
             alias: {
                 '@': path.resolve('resources/js'),
-                ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
+                route: path.resolve('vendor/tightenco/ziggy/dist'),
             }
         }
     })
