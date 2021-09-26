@@ -13,7 +13,7 @@
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" :src="template_url + '/img/avatar1_small.jpg'">
+                        <img alt="" :src="templateAsset('/img/avatar1_small.jpg')">
                         <span class="username">{{ $page.props.auth.user.name }}</span>
                         <b class="caret"></b>
                     </a>

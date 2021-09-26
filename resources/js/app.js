@@ -15,10 +15,19 @@ createInertiaApp({
         Vue.mixin({
             data() {
                 return {
-                    template_url: 'http://thevectorlab.net/flatlab-4',
+                    template_url: '//thevectorlab.net/flatlab-4',
                 }
             },
-            methods: {route},
+            methods: {
+                route,
+                templateAsset(url) {
+                    url = url.trim();
+                    if (url.charAt(0) !== '/') {
+                        url = '/' + url;
+                    }
+                    return this.template_url + url;
+                },
+            },
         });
         new Vue({
             render: h => h(App, props),
