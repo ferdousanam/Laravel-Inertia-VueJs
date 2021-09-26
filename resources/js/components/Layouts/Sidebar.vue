@@ -5,13 +5,13 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <Link href="/" :class="{ 'active': $page.url === '/' }">
+                    <Link :href="route('dashboard')" :class="{ 'active': $page.url === '/' }">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/users" :class="{ 'active': $page.component === 'User/Index' }">
+                    <Link :href="route('users.index')" :class="{ 'active': $page.component === 'User/Index' }">
                         <i class="fa fa-users"></i>
                         <span>Users</span>
                     </Link>

@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', DashboardController::class);
+    Route::get('/', DashboardController::class)->name('dashboard');
     Route::resource('/users', UserController::class);
 });

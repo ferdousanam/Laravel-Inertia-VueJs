@@ -4,7 +4,7 @@
             <section class="card">
                 <header class="card-header">
                     User List
-                    <Link class="btn btn-primary pull-right" :href="'/users/create'"><i class="fa fa-plus-square-o"></i> Add User</Link>
+                    <Link class="btn btn-primary pull-right" :href="route('users.create')"><i class="fa fa-plus-square-o"></i> Add User</Link>
                 </header>
                 <div class="card-body">
                     <table class="table table-striped">
