@@ -6,21 +6,9 @@
             </header>
             <div class="card-body">
                 <form method="POST" @submit.prevent="submit">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" :class="[errors.name && 'is-invalid']" id="name" name="name" placeholder="Email" v-model="form.name">
-                        <input-error name="name"></input-error>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" :class="[errors.email && 'is-invalid']" id="email" name="email" placeholder="Email" v-model="form.email" autocomplete="off">
-                        <input-error name="email"></input-error>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" :class="[errors.password && 'is-invalid']" id="password" placeholder="Password" v-model="form.password">
-                        <input-error name="password"></input-error>
-                    </div>
+                    <text-input v-model="form.name" :error="form.errors.name" label="Name" placeholder="Name" />
+                    <text-input v-model="form.email" :error="form.errors.email" label="Email Address" placeholder="Email" type="email" />
+                    <text-input v-model="form.password" :error="form.errors.password" label="Password" placeholder="Password" type="password" />
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
@@ -29,11 +17,11 @@
 </template>
 
 <script>
-import InputError from "@/Theme/InputError";
+import TextInput from "@/components/Form/TextInput";
 
 export default {
     components: {
-        InputError
+        TextInput,
     },
 
     computed: {
