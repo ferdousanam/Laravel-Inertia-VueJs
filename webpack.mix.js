@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const path = require('path');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -39,8 +40,13 @@ mix.js('resources/js/app.js', 'public/js')
         }
     })
     .options({
-        processUrls: false,
         processCssUrls: false
     })
-    .version()
-    .sourceMaps();
+    .purgeCss({
+        enabled: true,
+    });
+
+if (!mix.inProduction()) {
+    mix.version()
+        .sourceMaps();
+}
