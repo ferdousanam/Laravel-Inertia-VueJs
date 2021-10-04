@@ -5,6 +5,9 @@ import Layout from './components/Layouts/Layout'
 
 InertiaProgress.init()
 
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 createInertiaApp({
     resolve: name => {
         const page = require(`./Pages/${name}`).default;

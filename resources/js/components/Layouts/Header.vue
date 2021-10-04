@@ -13,7 +13,7 @@
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" :src="templateAsset('/img/avatar1_small.jpg')">
+                        <img alt="" :src="thumbnail" width="29" height="29">
                         <span class="username">{{ $page.props.auth.user.name }}</span>
                         <b class="caret"></b>
                     </a>
@@ -38,8 +38,24 @@ export default {
     components: {
         Link,
     },
+    data() {
+        return {
+            avatarUser: {},
+        }
+    },
+    computed: {
+        thumbnail: function () {
+            return this.avatarUser.picture?.thumbnail;
+        }
+    },
     mounted() {
-        //
+        axios.get('https://randomuser.me/api/?gender=male')
+            .then((response) => {
+                this.avatarUser = response.data.results[0];
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     },
     methods: {
         logout() {
